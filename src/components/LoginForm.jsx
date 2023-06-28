@@ -55,11 +55,11 @@ const LoginForm = () => {
       <form className="register-form" onSubmit={loginUser}>
         <div className="input-container">
           <label htmlFor="email">Email : </label>
-          <input type="text" id='email' name='email' value={email} placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} />
+          <input autoComplete='off' type="text" id='email' name='email' value={email} placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} />
           {invalidUsername && <p className='error-para'>{invalidUsername}</p>}
         </div><div className="input-container">
           <label htmlFor="password">Password : </label>
-          <input type="text" id='password' name='password' value={password} placeholder='Enter your password' onChange={(e) => setPassword(e.target.value)} />
+          <input autoComplete='off' type="text" id='password' name='password' value={password} placeholder='Enter your password' onChange={(e) => setPassword(e.target.value)} />
           {invalidPass && <p className='error-para'>{invalidPass}</p>}
         </div>
         <button type='submit' className="btn">Login</button>

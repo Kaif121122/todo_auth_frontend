@@ -41,7 +41,7 @@ const ForgotPassword = () => {
 
                 <div className="input-container">
                     <label htmlFor="email">Email : </label>
-                    <input type="text" id='email' name='email' value={email} placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} />
+                    <input autoComplete='off' type="text" id='email' name='email' value={email} placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} />
 
                 </div>
 

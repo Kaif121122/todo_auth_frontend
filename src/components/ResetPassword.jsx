@@ -75,7 +75,7 @@ const ResetPassword = () => {
 
         <div className="input-container">
           <label htmlFor="password">Password : </label>
-          <input type="text" id='password' required name='password' value={password} placeholder='Enter your new password' onChange={(e) => setPassword(e.target.value)} />
+          <input autoComplete='off' type="text" id='password' required name='password' value={password} placeholder='Enter your new password' onChange={(e) => setPassword(e.target.value)} />
 
         </div>
 
