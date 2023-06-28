@@ -1,4 +1,4 @@
-
+import React from 'react'
 import { BiEdit } from "react-icons/bi"
 import { AiFillDelete } from "react-icons/ai"
 

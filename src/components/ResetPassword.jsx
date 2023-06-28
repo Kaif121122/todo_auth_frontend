@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import React from 'react'
 
 const ResetPassword = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = "https://todo-app-vyrl.onrender.com"
+const baseUrl = "https://todo-app-vyrl.onrender.com/todo"
 
 // Get all todoitems 
 
@@ -16,7 +16,7 @@ const getAllToDo = (setToDo, setUsername) => {
         .then(({ data }) => {
             console.log('data ---> ', data);
             setToDo(data.todo)
-             setUsername(data.user)
+            setUsername(data.user)
         })
         .catch((err) => console.log(err))
 }
@@ -29,7 +29,7 @@ const addToDo = (text, setText, setToDo) => {
         .post(`${baseUrl}/save`, { text }, {
 
             headers: {
-                'Content-Type':'application/json',
+                'Content-Type': 'application/json',
                 'x-access-token': localStorage.getItem('token')
             }
         })
@@ -50,7 +50,7 @@ const updateToDo = (toDoId, text, setToDo, setText, setIsUpdating) => {
         .post(`${baseUrl}/update`, { _id: toDoId, text }, {
 
             headers: {
-                'Content-Type':'application/json',
+                'Content-Type': 'application/json',
                 'x-access-token': localStorage.getItem('token')
             }
         })
@@ -71,7 +71,7 @@ const deleteToDo = (_id, setToDo) => {
         .post(`${baseUrl}/delete`, { _id }, {
 
             headers: {
-                'Content-Type':'application/json',
+                'Content-Type': 'application/json',
                 'x-access-token': localStorage.getItem('token')
             }
         })
