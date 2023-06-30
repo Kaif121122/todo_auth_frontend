@@ -14,6 +14,7 @@ function TodoMain() {
   const [text, setText] = useState("")
   const [isUpdating, setIsUpdating] = useState(false)
   const [toDoId, setToDoId] = useState("")
+  const [loading,setLoading] = useState(true);
 
 
   //  Call the useffect and get the token from localstorage
@@ -27,6 +28,7 @@ function TodoMain() {
         navigate('/')
       } else {
         getAllToDo(setToDo, setUsername)
+        setLoading(false)
       }
     } else {
       navigate('/')
@@ -63,6 +65,12 @@ function TodoMain() {
   const logOutUser = () => {
     localStorage.clear();
     navigate('/')
+  }
+
+  if(loading){
+    return (
+      <h1>......Loading</h1>
+    )
   }
 
   return (

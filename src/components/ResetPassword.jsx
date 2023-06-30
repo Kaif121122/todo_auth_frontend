@@ -2,15 +2,14 @@ import { useState } from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import React from 'react'
 
 const ResetPassword = () => {
-  const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [loading,setLoading] = useState(true)
 
   const { token } = useParams();
 
@@ -27,7 +26,10 @@ const ResetPassword = () => {
       const data = await response.data;
 
       if (data.status === 'token-error') {
-        navigate('/')
+        setLoading(false)
+        setError(data.message)
+      }else if (data.status === 'token-verified') {
+        setLoading(false)
       }
 
 
@@ -68,6 +70,12 @@ const ResetPassword = () => {
     resetPasswordPage()
   }, [])
 
+  if(loading){
+    return (
+      <h1>......Loading</h1>
+    )
+  }
+
   return (
     <div className="container">
       <h1>Reset password</h1>
@@ -82,6 +90,7 @@ const ResetPassword = () => {
         <button type='submit' className="btn">Submit</button>
         {error && <p className='error-para'>{error}</p>}
 
+        {error && <Link to='/forgot-password'><button className="btn">Go to forgot password page</button></Link>}
         {success && <Link to='/login'><button className="btn">Go to login page</button></Link>}
       </form>
     </div>
